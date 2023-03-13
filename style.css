@@ -1,0 +1,246 @@
+:root {
+  --Dark-Blue: hsl(217, 19%, 35%);
+  --Desaturated-Blue: hsl(214, 17%, 51%);
+  --Grayish-Blue: hsl(212, 23%, 69%);
+  --Light-Blue: hsl(210, 46%, 95%);
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  background-color: hsl(0, 0%, 95%);
+}
+
+h2,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.card {
+  max-width: 730px;
+  margin-bottom: 20px;
+  display: flex;
+  background: hsl(0, 0%, 100%);
+  box-shadow: 0px 40px 40px -10px rgba(201, 213, 225, 0.503415);
+  border-radius: 10px;
+}
+
+.card__image {
+  display: block;
+  max-width: 285px;
+  border-radius: 10px 0 0 10px;
+  overflow: hidden;
+}
+
+.card__image img {
+  min-height: 100%;
+  object-fit: cover;
+  object-position: left;
+}
+
+.card__content {
+  padding: 32px 40px;
+  max-width: 365px;
+}
+
+.card__title {
+  margin-bottom: 12px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.4;
+  letter-spacing: 0.25px;
+  color: var(--Dark-Blue);
+}
+
+.card__text {
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.54;
+  letter-spacing: 0.121875px;
+  color: var(--Desaturated-Blue);
+}
+
+.user {
+  position: relative;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.user__avatar {
+  margin-right: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.user__name {
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 1.54;
+  letter-spacing: 0.121875px;
+  color: var(--Dark-Blue);
+}
+
+.user__date {
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.54;
+  letter-spacing: 0.121875px;
+  color: var(--Desaturated-Blue);
+}
+
+.user__share {
+  position: relative;
+  margin-left: auto;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: var(--Light-Blue);
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.4s ease-in-out;
+}
+
+.user__share:hover,
+.user__share:focus {
+  background-color: var(--Dark-Blue);
+}
+
+.user__share svg path {
+  transition: fill 0.4s ease-in-out;
+}
+
+.user__share:hover,
+.user__share:focus svg path {
+  fill: var(--Light-Blue);
+}
+
+.user__shareMenu {
+  pointer-events: none;
+  opacity: 0;
+  position: absolute;
+  bottom: 56px;
+  right: -107px;
+  padding: 18px 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.54;
+  letter-spacing: 5px;
+  color: var(--Grayish-Blue);
+  background-color: var(--Dark-Blue);
+  border-radius: 10px;
+  box-shadow: 0px 10px 10px rgba(201, 213, 225, 0.503415);
+  transition: opacity 0.8s ease-in-out;
+}
+
+.user__share:hover + .user__shareMenu,
+.user__share:focus + .user__shareMenu {
+  opacity: 1;
+  pointer-events: all;
+}
+.user__shareMenu:hover {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.user__shareMenu::after {
+  position: absolute;
+  bottom: -22px;
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border: 12px solid transparent;
+  border-top: 12px solid var(--Dark-Blue);
+}
+
+.user__shareMenu svg {
+  cursor: pointer;
+}
+
+.user__shareMenu svg:hover path {
+  fill: var(--Desaturated-Blue);
+}
+
+@media (max-width: 880px) {
+  .card {
+    max-width: 327px;
+    margin-top: 20px;
+    flex-direction: column;
+  }
+
+  .card__image {
+    max-width: 100%;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .card__content {
+    padding: 36px 0 0 0;
+  }
+
+  .card__title {
+    font-size: 16px;
+  }
+
+  .card__title,
+  .card__text {
+    padding: 0px 32px;
+  }
+
+  .user {
+    padding: 16px 32px 20px;
+  }
+
+  .user__shareMenu {
+    justify-content: flex-start;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 22px 32px;
+    border-radius: 0px 0px 10px 10px;
+  }
+
+  .user__shareMenu:after {
+    display: none;
+  }
+
+  .user__share:hover,
+  .user__share:focus {
+    background-color: var(--Grayish-Blue);
+  }
+}
